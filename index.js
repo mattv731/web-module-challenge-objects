@@ -34,8 +34,8 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
-const pizza = createMenuItem('Pizza', 5, 'Lunch')
-const french_toast = createMenuItem('French Toast', 8, 'Breakfast');
+const pizza = createMenuItem('Pizza', 5, 'Lunch');
+const frenchToast = createMenuItem('French Toast', 8, 'Breakfast');
 const pie = createMenuItem('Pie', 4, 'Dessert');
 
 // console.log('Task 1:')
@@ -92,10 +92,9 @@ Using the reviews array above:
 */
 for (let i = 0; i < reviews.length; i++){
   if (reviews[i].name === 'Julius'){
-    console.log(reviews[i].feedback);
+    // console.log(reviews[i].feedback);
   }
 }
-
 
 
 
@@ -105,8 +104,13 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
-
-
+for (let i = 0; i < reviews.length; i++){
+  if (reviews[i].name === "Reyna"){
+    reviews[i].feedback = "this place is chill with really cool people, great for getting work done on weekdays"
+    
+  }
+}
+// console.log(reviews);
 
 
 
@@ -119,9 +123,15 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+
+function addReview (array, name, rating, feedback){
+  const newReview = {name, rating, feedback};
+  array.push(newReview);
+  return array;
 }
+// const mattyboy = addReview(reviews, "Mattyboy", 2.5, 'It was okay.');
+// console.log(mattyboy)
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
@@ -134,9 +144,14 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, index) {
+  const name = array[index].name;
+  const rating = array[index].rating;
+  const feedback = array[index].feedback;
+  return `${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`
+  
 }
+// console.log(getReviewByIndex(reviews, 0));
 
 
   
@@ -153,10 +168,14 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
-} 
-
+function getLastReview(array) {
+  const lastElement = array[array.length -1];
+  const name = lastElement.name;
+  const rating = lastElement.rating;
+  const feedback = lastElement.feedback;
+  return `${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`
+}
+  console.log(getLastReview(reviews))
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
